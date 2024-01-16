@@ -1,0 +1,21 @@
+.home-container {
+    display: flex;
+    .all-movies {
+        width: 75%;
+        min-height: calc(100vh - 80px);
+        border-right: 1px solid #fdc827;
+        padding: 20px 40px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .popular-movies {
+        width: 25%;
+        min-height: calc(100vh - 80px);
+        padding: 20px 40px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
