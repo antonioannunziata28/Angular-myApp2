@@ -10,7 +10,17 @@
     .top {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+    }
+    h4 {
+        text-transform: uppercase;
+        font-weight: bold;
+        border-left: 5px solid #f90;
+        padding-left: 10px;
+    }
+    .view-all {
+        color: #f90;
+        cursor: pointer;
     }
     .popular-movies {
         width: 25%;

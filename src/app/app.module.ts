@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { MovieComponent } from './movie/movie.component';
 import { FormsModule } from '@angular/forms';
+import { Inject, NgModule, PLATFORM_ID } from '@angular/core';
+import { TransferState } from '@angular/platform-browser';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,13 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient({
+      useFactory: (TransferState, options) =>{
+        return withFetch({TransferState, options});
+      },
+      deps: [TransferState, [new Inject(PLATFORM_ID)]],
+    })
   ],
   bootstrap: [AppComponent]
 })

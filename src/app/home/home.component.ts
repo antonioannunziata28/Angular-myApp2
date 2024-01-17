@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  trendingMovies: any;
+
+  constructor(private http: HttpClient) {}
+
+  getTrendingMovies() {
+    this.http.get('http://localhost:4200/assets/data/trending-movies.json').subscribe((movies) => {
+      this.trendingMovies = movies;
+      console.log(this.trendingMovies);
+    })
+  }
 }
