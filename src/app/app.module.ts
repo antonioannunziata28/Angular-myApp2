@@ -8,9 +8,10 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { MovieComponent } from './movie/movie.component';
 import { FormsModule } from '@angular/forms';
-import { Inject, NgModule, PLATFORM_ID } from '@angular/core';
-import { TransferState } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstap';
+
 
 @NgModule({
   declarations: [
@@ -23,16 +24,13 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient({
-      useFactory: (TransferState, options) =>{
-        return withFetch({TransferState, options});
-      },
-      deps: [TransferState, [new Inject(PLATFORM_ID)]],
-    })
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent]
 })

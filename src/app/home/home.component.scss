@@ -11,6 +11,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 15px;
     }
     h4 {
         text-transform: uppercase;
@@ -21,6 +22,26 @@
     .view-all {
         color: #f90;
         cursor: pointer;
+    }
+    .movies-thumbnail {
+        display: flex;
+        justify-content: space-between;
+        .movie{
+            .cover{
+                img {
+                    border-radius: 5px;
+                }
+            }
+            .detail {
+                width: 180px;
+            }
+            .name {
+                font-weight: bold;
+                height: 30px;
+                margin-top: 5px;
+                cursor: pointer;
+            }
+        }
     }
     .popular-movies {
         width: 25%;
